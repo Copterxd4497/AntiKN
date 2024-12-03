@@ -21,7 +21,7 @@ const changeToSecondImage = () => {
 };
 
 const changeToOriginalImage = () => {
-  Kong.src = 'Char_images/Kong_page-0001.jpg';
+  Kong.src = 'Char_images/Kong adjust verstion.jpg';
 };
 
 Kong.addEventListener('mousedown', changeToSecondImage);
@@ -52,14 +52,15 @@ const countDisplay = document.getElementById('count');
 
 const resetCount = () => {
   clickCount = 0;
-  countDisplay.textContent = `Clicks: ${clickCount}`;
+  countDisplay.textContent = `${clickCount}`;
 };
 
 Kong.addEventListener('click', () => {
   clickCount++;
-  countDisplay.textContent = `Clicks: ${clickCount}`;
+  countDisplay.textContent = `${clickCount}`;
 
   // Clear the existing timer and start a new one
   if (timer) clearTimeout(timer);
   timer = setTimeout(resetCount, RESET_DELAY);
 });
+
