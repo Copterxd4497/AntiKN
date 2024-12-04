@@ -17,7 +17,7 @@ function userScroll() {
 document.addEventListener('DOMContentLoaded', userScroll);
 
 const changeToSecondImage = () => {
-  Kong.src = 'Char_images/vice director_page-0001.jpg';
+  Kong.src = 'Char_images/Stupid.png';
 };
 
 const changeToOriginalImage = () => {

@@ -131,15 +131,30 @@
   }
 }
 
-.loader {
-  position: absolute;
-  top: calc(50% - 1.25em);
-  left: calc(50% - 1.25em);
+.wrapper {
+  font-family: montserrat;
+  line-height: 1em;
+  text-align: center;
+  overflow: hidden;
 }
 
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.number-area {
+  display: inline-block;
+  overflow: hidden;
+  width: 0.6em;
+  height: 1em;
+  padding: 0.6rem;
+  text-shadow: 0 4px 8px rgba(0, 245, 245, 0.9);
+  color: #e3e3d3;
+}
+
+.num {
+  font: inherit;
+  word-break: break-all;
+  display: block;
+  width: 0;
+  padding: 0 1.6em 0 0;
+  margin: 0 auto;
+  overflow: inherit;
+  animation: animate 0.5s steps(10) forwards infinite;
 }
