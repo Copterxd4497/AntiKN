@@ -3,7 +3,7 @@ const countDisplay = document.getElementById('count');
 const navbar = document.querySelector('.navbar');
 let clickCount = 0;
 let timer = null;
-const RESET_DELAY = 100; // Adjust reset delay for faster response
+const RESET_DELAY = 500; // Adjust reset delay for faster response
 
 // Preload images
 const preloadedImages = [
