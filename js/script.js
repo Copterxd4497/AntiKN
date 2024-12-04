@@ -3,7 +3,7 @@ const countDisplay = document.getElementById('count');
 let isFirstImage = true;
 let clickCount = 0;
 let timer = null;
-const RESET_DELAY = 100; // Faster reset delay
+const RESET_DELAY = 1000; // Faster reset delay
 
 function userScroll() {
   const navbar = document.querySelector('.navbar');
