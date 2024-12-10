@@ -6,6 +6,11 @@ let timer = null;
 const RESET_DELAY = 500; // Adjust reset delay for faster response
 const sound = document.getElementById("clickSound");
 
+//add sound
+document.getElementById("Kong").addEventListener("click", () => {
+  sound.play();
+});
+
 // Preload images
 const preloadedImages = [
   'Char_images/Stupid.png',
@@ -37,10 +42,7 @@ const resetCount = () => {
   countDisplay.textContent = `${clickCount}`;
 };
 
-//add sound
-document.getElementById("Kong").addEventListener("click", () => {
-  sound.play();
-});
+
 
 // Click counter functionality
 Kong.addEventListener('click', () => {
