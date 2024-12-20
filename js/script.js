@@ -1,32 +1,54 @@
 const Kong = document.getElementById('Kong');
-let isFirstImage = true;
-let interval;
+const countDisplay = document.getElementById('count');
+const navbar = document.querySelector('.navbar');
+let clickCount = 0;
+let timer = null;
+const RESET_DELAY = 500; // Adjust reset delay for faster response
+const sound = document.getElementById("clickSound");
 
-function userScroll() {
-  const navbar = document.querySelector('.navbar');
+//add sound
+document.getElementById("Kong").addEventListener("click", () => {
+  sound.play();
+});
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('bg-dark');
-    } else {
-      navbar.classList.remove('bg-dark');
-    }
-  });
-}
+// Preload images
+const preloadedImages = [
+  'Char_images/Stupid.png',
+  'Char_images/Kong adjust verstion.jpg',
+];
+preloadedImages.forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
 
-document.addEventListener('DOMContentLoaded', userScroll);
+// Navbar scroll behavior
+const handleScroll = () => {
+  navbar.classList.toggle('bg-dark', window.scrollY > 50);
+};
+window.addEventListener('scroll', handleScroll);
 
-const changeToSecondImage = () => {
-  Kong.src = 'Char_images/vice director_page-0001.jpg';
+// Image change functions
+const changeToSecondImage = () => (Kong.src = 'Char_images/Stupid.png');
+const changeToOriginalImage = () => (Kong.src = 'Char_images/Kong adjust verstion.jpg');
+
+// Unified pointer events for responsiveness
+Kong.addEventListener('pointerdown', changeToSecondImage);
+Kong.addEventListener('pointerup', changeToOriginalImage);
+Kong.addEventListener('pointerleave', changeToOriginalImage);
+
+// Reset counter
+const resetCount = () => {
+  clickCount = 0;
+  countDisplay.textContent = `${clickCount}`;
 };
 
-const changeToOriginalImage = () => {
-  Kong.src = 'Char_images/Kong_page-0001.jpg';
-};
 
-Kong.addEventListener('mousedown', changeToSecondImage);
-Kong.addEventListener('mouseup', changeToOriginalImage);
-Kong.addEventListener('mouseleave', changeToOriginalImage);
 
-Kong.addEventListener('touchstart', changeToSecondImage);
-Kong.addEventListener('touchend', changeToOriginalImage);
+// Click counter functionality
+Kong.addEventListener('click', () => {
+  clickCount++;
+  countDisplay.textContent = `${clickCount}`;
+  if (timer) clearTimeout(timer);
+  timer = setTimeout(resetCount, RESET_DELAY);
+});
+
